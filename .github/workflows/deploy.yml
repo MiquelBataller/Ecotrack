@@ -31,10 +31,13 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production --base-href /${{ github.event.repository.name }}/
 
+      - name: List dist directory
+        run: ls -la dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/ecotrack/browser
+          path: dist/Ecotrack/browser
 
   deploy:
     needs: build
